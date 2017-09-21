@@ -1,0 +1,109 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+nav {
+  background-color: #347a34;
+  color: white;
+}
+
+nav a,
+nav a:visited {
+  color: #fff;
+}
+nav a:hover {
+  color: #000;
+}
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+}
+
+/* pedigree */
+
+.person {
+  height: 200px;
+  width: 150px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  margin: 2em auto;
+  padding: .5em;
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+}
+
+.person:not(.missing){
+  cursor: pointer;
+}
+
+.person.missing {
+  background-color: #f0f0f0;
+}
+
+.portrait {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #e0e0e0;
+  margin: 1em auto;
+}
+
+.missing .portrait {
+  visibility: hidden;
+}
+
+.person-name {
+  font-size: large;
+}
+
+.person-id {
+  font-size: small;
+}
+
+/* draw pedigree lines */
+
+.father .person:after,
+.mother .person:after {
+  content: '';
+  height: 120px;
+  display: block;
+  position: absolute;
+  bottom: -115px;
+  border-color: #888;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 0;
+  z-index: -1;
+}
+
+.father .person:after {
+  left: 50%;
+  border-width: 0 0 1px 1px;
+}
+
+.mother .person:after {
+  right: 50%;
+  border-width: 0 1px 1px 0;
+}
+
+.grandparents .person:after {
+  width: 50%;
+}
+
+.parents .person:after {
+  width: 200%;
+}
+
+/* children */
+
+.children {
+  display: flex;
+  justify-content: center;
+}
