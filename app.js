@@ -37,6 +37,7 @@ app.use(logger('dev'));
 // Configure serving of static assets.
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'slides')));
 
 // Make the session available in templates and default to an empty object. If we
 // don't default to an empty object then we would have to check for its 
