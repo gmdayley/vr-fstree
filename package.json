@@ -30,10 +30,11 @@
   },
   "scripts": {
     "dev-server": "nodemon bin/www --watch server",
-    "dev-web": "webpack-dev-server --config ./webpack.config.js --hot --content-base build",
+    "dev-web": "webpack-dev-server --config ./webpack.config.js --hot --content-base public",
     "dev": "concurrently 'npm run dev-server' 'npm run dev-web'",
     "build": "webpack",
-    "start": "npm run build && bin/www",
+    "postinstall": "npm run build",
+    "start": "bin/www",
     "test": "karma start",
     "testing": "karma start --single-run=false",
     "preghpages": "npm run build && rm -rf gh-pages && cp -r src gh-pages && cp index.html build/bundle.js gh-pages",

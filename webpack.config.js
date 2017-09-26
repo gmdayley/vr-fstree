@@ -30,7 +30,7 @@ module.exports = {
   output: {
     // Bundle will be served at /bundle.js locally.
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, './public'),
     publicPath: '/',
   },
   module: {
