@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var session = require('express-session');
 var config = require('config');
+var proxy = require('http-proxy-middleware');
 
 var app = express();
 
@@ -37,7 +38,9 @@ app.use(logger('dev'));
 // Configure serving of static assets.
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/build', express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'slides')));
+app.use('/proxy', proxy({target: 'https://integration.familysearch.org', changeOrigin: true, pathRewrite: {'^/proxy' : ''}}));
 
 // Make the session available in templates and default to an empty object. If we
 // don't default to an empty object then we would have to check for its 

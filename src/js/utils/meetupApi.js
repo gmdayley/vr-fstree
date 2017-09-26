@@ -30,8 +30,8 @@ export function getMembers(personId) {
     for (let result of json.artifactList.artifact) {
       if (result.thumbUrl) {
         const thumb = new URL(result.thumbUrl);
-        thumb.protocol = 'http';
-        thumb.host = 'localhost:8080';
+        thumb.protocol = window.location.protocol;
+        thumb.host = window.location.host;
         thumb.pathname = '/proxy' + thumb.pathname;
         members.push(Map({
           id: result.apid,
