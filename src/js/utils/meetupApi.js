@@ -3,6 +3,19 @@ import {List, Map} from 'immutable'
 
 import Cookies from 'universal-cookie';
 
+/*
+    1      Cool Photos!
+   813       Interesting photos
+  8458       Horses
+  11445      Cars
+15100        Temple
+18972        Military
+18973        Fishing
+25421        Missionaries
+https://www.familysearch.org/photos/gallery/album/8458
+
+https://integration.familysearch.org/tree/pedigree/L5XG-789/landscape
+ */
 
 const API_ROOT = 'https://integration.familysearch.org';
 const GET_MEMBERS_URL = `${API_ROOT}/platform/tree/ancestry?generations=5&person=`;

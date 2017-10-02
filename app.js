@@ -5,6 +5,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var config = require('config');
 var proxy = require('http-proxy-middleware');
+var sslRedirect = require('heroku-ssl-redirect');
 
 var app = express();
 
@@ -18,6 +19,8 @@ app.locals.title = 'Pedigree Browser';
 // connection to the proxy instead of the proxies connection to server.
 // https://expressjs.com/en/guide/behind-proxies.html
 app.set('trust proxy', true);
+
+app.use(sslRedirect());
 
 // Enable session storage. This defaults to using an in-memory store which is
 // only designed for development environments. It will leak memory. Use a
@@ -56,6 +59,9 @@ app.use('/signout', require('./routes/signout'));
 app.use('/oauth-redirect', require('./routes/oauth-redirect'));
 app.use('/pedigree', require('./routes/pedigree'));
 app.use('/vr-pedigree', require('./routes/vr-pedigree'));
+app.use('/:page', (req, res, next) => {
+  res.render(req.params.page);
+});
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
