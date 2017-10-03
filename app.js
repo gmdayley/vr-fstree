@@ -41,7 +41,7 @@ app.use(logger('dev'));
 // Configure serving of static assets.
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'slides')));
+app.use('/slides', express.static(path.join(__dirname, 'slides')));
 app.use('/proxy', proxy({target: 'https://integration.familysearch.org', changeOrigin: true, pathRewrite: {'^/proxy' : ''}}));
 
 // Make the session available in templates and default to an empty object. If we

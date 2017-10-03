@@ -1,0 +1,32 @@
+#slides-container .font-3d {
+  font-family: demoncubicblockfont_blackRg;
+  text-transform: lowercase;
+  font-size: 195%;
+}
+
+.reveal .sl-block.columns {
+  display: flex;
+}
+.multicolumns {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
+.reveal .sort-logo {
+  position: fixed;
+  left: 0;
+  bottom: 4px;
+  z-index: 31;
+  color: #1E3D56;
+  background-color: white;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reveal .sort-logo span {
+  padding: 0 8px;
+}
