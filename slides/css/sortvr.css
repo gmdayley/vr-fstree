@@ -1,7 +1,7 @@
 #slides-container .font-3d {
   font-family: demoncubicblockfont_blackRg;
   text-transform: lowercase;
-  font-size: 195%;
+  /*font-size: 195%;*/
 }
 
 .reveal .sl-block.columns {
