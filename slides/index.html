@@ -40,55 +40,46 @@
 	<body>
 
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-background="white" data-state="show-particles" class="titlepage">
+
+
+				<section class="titlepage" data-state="particles">
 					<h2>Another Dimension</h2>
 					<h4>An Introduction to</h4>
 					<h1>WebVR</h1>
 					<h3>Logan Allred</h3>
 					<h3>Gabriel Dayley</h3>
 				</section>
+				
+        <section>
+					<section data-state="particles">
+						<h1>What is VR?</h1>
+						<img src="images/vr-person-bl.svg" height="200"/>
+					</section>
 
-				<section data-background="#222" data-state="hide-particles">
-					<h1>Hello</h1>
-					<p>thestadfasf</p>
+					<section data-background="#30BCED">
+						<h1>Something</h1>
+						<ul>
+							<li>asdfasdf</li>
+							<li>asdfasdf</li>
+							<li>asdfasdf</li>
+							<li>asdfasdf</li>
+							<li>asdfasdf</li>
+						</ul>
+					</section>
+					<section data-background-image="images/home.jpg">
+			
+						</section>
+        </section>
 
-					<ul>
-						<li>aaaaa</li>
-						<li>aaaaa</li>
-						<li>aaaaa</li>
-						<li>aaaaa</li>
-						<li>aaaaa</li>
-						<li>aaaaa</li>
-						<li>aaaaa</li>
-					</ul>
-				</section>
+        <section data-state="particles">
+					<h1>History of VR</h1>
+					<img src="images/ar-glasses-bl.svg" height="200"/>
+        </section>
 
-				<section>
-					<img src="images/ar-glasses.svg" height="60"/>
-					<img src="images/vr-cardboard.svg" height="60"/>
-					<img src="images/vr-person.svg" height="60"/>
-					<img src="images/cube.svg" height="60"/>
-					<img src="images/gamepad.svg" height="60"/>
+        <section data-state="particles">
+					<h1>Why VR?</h1>
 					<img src="images/infinite-time.svg" height="60"/>
-					<img src="images/package.svg" height="60"/>
-					<img src="images/settings.svg" height="60"/>
-					<img src="images/structure.svg" height="60"/>
-					<img src="images/gamepad2.svg" height="60"/>
-				</section>
-
-        <section>
-          <h1>What is VR?</h1>
-        </section>
-
-        <section>
-          <h1>History of VR</h1>
-        </section>
-
-        <section>
-          <h1>Why VR?</h1>
         </section>
 
         <section>
@@ -199,6 +190,19 @@
 								 style="min-width: 30px; min-height: 30px; left: 30px; top: 450px;">
 								<img class="plain" data-src="/images/lds-info.png"/>
 					</section>
+
+					<section data-background="#222">
+							<img src="images/ar-glasses.svg" height="60"/>
+							<img src="images/vr-cardboard.svg" height="60"/>
+							<img src="images/vr-person.svg" height="60"/>
+							<img src="images/cube.svg" height="60"/>
+							<img src="images/gamepad.svg" height="60"/>
+							<img src="images/infinite-time.svg" height="60"/>
+							<img src="images/package.svg" height="60"/>
+							<img src="images/settings.svg" height="60"/>
+							<img src="images/structure.svg" height="60"/>
+							<img src="images/gamepad2.svg" height="60"/>
+						</section>
 			</div>
 	
 		</div>
@@ -238,13 +242,19 @@
 				]
 			});
 
-			Reveal.addEventListener( 'show-particles', function() {
-				document.getElementById("particles-js").classList.remove('hide')
-			}, false );
+			// Reveal.addEventListener( 'show-particles', function() {
+			// 	document.getElementById("particles-js").classList.remove('hide')
+			// }, false );
 
-			Reveal.addEventListener( 'hide-particles', function() {
-				document.getElementById("particles-js").classList.add('hide')
-			}, false );
+			// Reveal.addEventListener( 'hide-particles', function() {
+			// 	document.getElementById("particles-js").classList.add('hide')
+			// }, false );
+
+			// Reveal.addEventListener('slidechanged', function (event) {
+			// 	// var showParticles = event.currentSlide.classList.contains('particles')
+			// 	console.log( event.currentSlide.classList )
+			// 	// console.log(showParticles)
+			// }, false)
 		</script>
 
 </body>
