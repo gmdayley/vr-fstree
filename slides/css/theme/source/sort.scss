@@ -1,0 +1,85 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+@import url(../../lib/font/cubicblock/cubicblock_b.css);
+@import url('https://fonts.googleapis.com/css?family=Biryani:800|Comfortaa|Faster+One|Londrina+Shadow|Mitr|Mukta+Malar|Palanquin+Dark');
+
+// font-family: 'Comfortaa', cursive;
+// font-family: 'Palanquin Dark', sans-serif;
+// font-family: 'Mitr', sans-serif;
+// font-family: 'Faster One', cursive;
+// font-family: 'Londrina Shadow', cursive;
+// font-family: 'Mukta Malar', sans-serif;
+// font-family: 'Biryani', sans-serif;
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor:#fff;
+$mainColor: #222;	
+$headingColor: #222;
+
+
+$mainFontSize: 42px;
+// $mainFont: 'Palanquin Dark', sans-serif;
+
+$headingFont: 'Londrina Shadow', cursive;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 500;
+
+$linkColor: #42affa;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+section.titlepage {
+	h1 {
+		font-family: 'cubicblock', cursive;
+		text-transform: lowercase;
+		font-size: 4em;
+	}
+}
+
+.watermark {
+
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal section img {
+	border: none;
+	background: none;
+	box-shadow: none;
+}
