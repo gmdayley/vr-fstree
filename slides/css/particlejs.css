@@ -1,0 +1,19 @@
+#particles-js {
+  z-index: -20;
+	width:100%;
+	height:100%;
+	position: fixed;
+	top: 0;
+  bottom: 0;
+
+  top: 10000px;
+}
+
+/* #particles-js.top{
+	z-index: 200;
+} */
+
+
+.particles > body > div#particles-js {
+  top: 0;
+}
