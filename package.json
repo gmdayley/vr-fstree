@@ -10,23 +10,23 @@
     "classnames": "2.2.5",
     "config": "^1.26.2",
     "ejs": "^2.5.7",
-    "express": "^4.15.4",
-    "express-session": "^1.15.5",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
     "fetch-everywhere": "^1.0.5",
     "fetch-jsonp": "1.0.6",
     "fs-js-lite": "^2.4.0",
     "heroku-ssl-redirect": "^0.0.4",
     "http-proxy-middleware": "^0.17.4",
-    "immutable": "^3.8.1",
-    "morgan": "^1.8.2",
+    "immutable": "^3.8.2",
+    "morgan": "^1.9.0",
     "node-sass": "^4.5.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2",
     "sass-loader": "^6.0.3",
-    "serve-favicon": "^2.4.3",
+    "serve-favicon": "^2.4.5",
     "universal-cookie": "^2.1.0"
   },
   "scripts": {
@@ -70,6 +70,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-runtime": "^6.23.0",
+    "browser-sync": "^2.18.13",
     "concurrently": "^3.5.0",
     "css-loader": "^0.27.3",
     "ghpages": "0.0.10",
@@ -81,7 +82,7 @@
     "redux-devtools-log-monitor": "^1.2.0",
     "style-loader": "^0.14.1",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.9.1"
   },
   "engines": {
     "node": "8"

@@ -13,20 +13,22 @@ import Cookies from 'universal-cookie';
 18973        Fishing
 25421        Missionaries
 https://www.familysearch.org/photos/gallery/album/8458
+https://www.familysearch.org/artifactmanager/albums/8458/artifacts
 
 https://integration.familysearch.org/tree/pedigree/L5XG-789/landscape
  */
 
 const API_ROOT = 'https://integration.familysearch.org';
 const GET_MEMBERS_URL = `${API_ROOT}/platform/tree/ancestry?generations=5&person=`;
-const GET_ALBUM_URL = `${API_ROOT}/artifactmanager/albums/1/artifacts?includeDatesPlaces=true`;
+// const GET_ALBUM_URL = `${API_ROOT}/artifactmanager/albums/1/artifacts?includeDatesPlaces=true`;
+const GET_ALBUM_URL = `https://www.familysearch.org/artifactmanager/albums/813/artifacts`;
 
 export function getMembers(personId) {
   const cookies = new Cookies();
   console.log('cookies', cookies)
   return fetch(GET_ALBUM_URL/* + personId*/, {
     headers: {
-      Authorization: 'Bearer ' + cookies.get('familysearch-sessionid'),
+      // Authorization: 'Bearer ' + cookies.get('familysearch-sessionid'),
       Accept: 'application/json'
     }
   }).then(res => {
