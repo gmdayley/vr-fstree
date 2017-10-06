@@ -100970,7 +100970,7 @@ var Members = function (_Component) {
           null,
           members.map(this.renderMember.bind(this)),
           _react2.default.createElement('a-animation', { attribute: 'rotation',
-            dur: '36000',
+            dur: '180000',
             fill: 'forwards',
             to: '0 360 0',
             repeat: 'indefinite',
@@ -101441,7 +101441,7 @@ function getMembers(personId) {
   console.log('cookies', cookies);
   return fetch(GET_ALBUM_URL /* + personId*/, {
     headers: {
-      // Authorizationx: 'Bearer ' + cookies.get('familysearch-sessionid'),
+      // Authorization: 'Bearer ' + cookies.get('familysearch-sessionid'),
       Accept: 'application/json'
     }
   }).then(function (res) {
