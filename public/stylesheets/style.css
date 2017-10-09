@@ -107,3 +107,8 @@ nav a:hover {
   display: flex;
   justify-content: center;
 }
+
+#root > [data-reactroot] {
+  position: relative;
+  height: 100vh;
+}

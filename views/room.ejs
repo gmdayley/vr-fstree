@@ -434,6 +434,10 @@
 <body>
 <a-scene>
 
+  <a-assets>
+    <a-asset-item id="sofa" src="models/sofa.dae"></a-asset-item>
+  </a-assets>
+
   <a-entity geometry="primitive: plane; height: 14; width: 22" position="-21 3.3 2" rotation="0 90 0" material="shader: flat;
 src: url(images/outside.jpg)"></a-entity>
   <a-entity geometry="primitive: plane; height: 14; width: 22" position="21 3.3 2" rotation="0 -90 0" material="shader: flat;
@@ -546,91 +550,12 @@ src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
   <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="-6.9 3.5 10.9" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
 
-  <!-- TV -->
-  <a-entity geometry="primitive: box; depth: 0.15; height: 5.3; width: 9.3" position="0 2.8 -5.6" rotation="0 0 0"
-            material="shader: flat; metalness: 1.5; color: #0b0806;"></a-entity>
-  <!-- TV Top -->
-  <a-entity geometry="primitive: box; depth: 0.1; height: 0.7; width: 12" position="0 6.1 -5.7" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 12.2" position="0 6.3 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 7 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 12.2" position="0 5.6 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 7 1"></a-entity>
-  <!-- TV Sides -->
-  <a-entity geometry="primitive: box; depth: 1; height: 6; width: 1.1" position="5.2 2.5 -6" rotation="0 0 0" material="shader: flat;
-src: url(images/wood2.jpg); repeat: 1 2;"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 6; width: 1.1" position="-5.2 2.5 -6" rotation="0 0 0"
-            material="shader: flat;
-src: url(images/wood2.jpg); repeat: 1 2;"></a-entity>
-  <!-- TV Bottom -->
-  <a-entity geometry="primitive: box; depth: 1; height: 0.8; width: 12" position="0 -0.3 -5.9" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <!-- Shelf Left -->
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4.2" position="-7.7 5.6 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4" position="-7.7 3.7 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4" position="-7.7 1.8 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 6; width: 4" position="-7.7 2.7 -6.35" material="shader: flat;
-color: #080302"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4.2" position="-7.7 -0.2 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 6; width: 1" position="-9.7 2.7 -6" rotation="0 90 0 "
-            material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <!-- Shelf Right -->
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4.2" position="7.7 5.6 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4" position="7.7 3.7 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4" position="7.7 1.8 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 6; width: 4" position="7.7 2.7 -6.35" material="shader: flat;
-color: #080302"></a-entity>
-  <a-entity geometry="primitive: box; depth: 1; height: 0.2; width: 4.2" position="7.7 -0.2 -6" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 6; width: 1" position="9.7 2.7 -6" rotation="0 90 0 "
-            material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-
-
-  <a-video src="videos/alien.mp4" autoplay="true" width="9" height="5" position="0 2.8 -5.519">
-    <a-root>
-      <video id="video" src="videos/alien.mp4" width="9" height="5" autoplay="" loop="true" crossorigin="anonymous"
-             style="display: none" controls="">
-      </video>
-      <a-entity geometry="primitive: plane;
-                      height: 5;
-                      width: 9;
-                      translate: 0 0 0" material="shader: flat; src: #video">
-      </a-entity>
-    </a-root>
-  </a-video>
-  <a-model src="models/sofa.dae" scale="1 1 1" position="0 0 4.3" rotation="0 90 0">
+  <a-collada-model src="models/sofa.dae" scale="1 1 1" position="0 0 4.3" rotation="0 90 0">
     <a-root>
       <a-entity material="opacity: 1.0" loader="src: url(models/sofa.dae); format: collada">
       </a-entity>
     </a-root>
-  </a-model>
-
-  <!-- Shelf Items -->
-  <a-entity geometry="primitive: plane; height: 0.9; width: 3" position="7.5 0.42 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/books.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 0.6; width: 1.1" position="8.2 2.2 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/oculus.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 0.9; width: 0.7" position="6.8 2.33 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/oculus-stand.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 1.5; width: 0.9" position="7.6 4.6 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/robot.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 1.3; width: 1.3" position="-7.6 4.5 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/alien.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 0.7; width: 0.9" position="-8.4 2.25 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/psvr.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 0.24; width: 1" position="-6.8 1.94 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/ps-move.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 0.4; width: 1.8" position="-7.7 0.10 -5.99" rotation="0 0 0" material="shader: flat; transparent: true;
- src: url(images/ps4.png)"></a-entity>
+  </a-collada-model>
 
   <!-- Wainscoting Front -->
   <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 5" position="-12.2 1.5 -6.4" rotation="0 0 0 "

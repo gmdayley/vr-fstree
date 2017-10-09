@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var restError = require('../lib/rest-error');
 var async = require('async');
+const url = require('url');
+const {URL} = require('url');
 
 // Setup the FS sdk client before handling any requests on this router.
 router.use(require('../middleware/fs-client'));
@@ -33,10 +35,10 @@ router.get('/:personId', function(req, res, next) {
     // root person, their parents, and their grandparents (meaning the generations
     // parameter doesn't count the root person as a generation).
     ancestry: function(callback){
-      
+      console.time('ped')
       // https://familysearch.org/developers/docs/api/tree/Ancestry_resource
-      fs.get('/platform/tree/ancestry?generations=2&person=' + personId, function(error, response){
-        
+      fs.get('/platform/tree/ancestry?generations=6&person=' + personId, function(error, response){
+        console.timeEnd('ped')
         // When requesting a person's ancestry, anything other than an HTTP 200
         // is unexpected and thus we treat it as an error.
         //
@@ -75,10 +77,10 @@ router.get('/:personId', function(req, res, next) {
     
     // Fetch the person's children.
     children: function(callback){
-      
+      console.time('children')
       // https://familysearch.org/developers/docs/api/tree/Children_of_a_Person_resource
       fs.get(`/platform/tree/persons/${personId}/children`, function(error, response){
-        
+        console.timeEnd('children')
         // Error handling. 
         if(error || response.statusCode >= 400){
           return callback(error || restError(response));
@@ -101,10 +103,10 @@ router.get('/:personId', function(req, res, next) {
       // The portraits must be fetched one at a time so we use a queue.
       // http://caolan.github.io/async/docs.html#queue
       var q = async.queue(function(person, queueCallback){
-        
+        console.time('portrait'+person.id)
         // https://familysearch.org/developers/docs/api/tree/Person_Memories_Portrait_resource
         fs.get('/platform/tree/persons/' + person.id + '/portrait', function(error, response){
-          
+          console.timeEnd('portrait'+person.id)
           // We don't handle errors here because missing the portrait is not fatal.
           // We just check to see if a response is available and whether a
           // portrait URL exists.
@@ -117,13 +119,16 @@ router.get('/:personId', function(req, res, next) {
             // We chose to store the portrait URL in the person's display
             // properties because the person objects are already available in the
             // template and because the portrait is only used for display.
-            person.display.portrait = response.headers.location;
+            let portraitURL = new URL(response.headers.location);
+            // portraitURL.host = req.
+            // portraitURL.pathname = '/proxy' + portraitURL.pathname;
+            person.display.portrait = url.resolve(req.url, '/proxy' + portraitURL.pathname);
           }
           
           // Notify the queue that we're done fetching this portrait
           queueCallback();
         });
-      });
+      }, 50);
       
       // When the queue is drained (all tasks have been handled) we notify
       // async.autoInject that we're done by calling the callback it provided.
@@ -158,7 +163,12 @@ router.get('/:personId', function(req, res, next) {
     if(error){
       next(error);
     } else {
-      res.render('pedigree', results);
+      console.log('results', Object.keys(results.ancestry).length, results.children.length)
+      if (req.query.vr) {
+        return res.render('pedigree-vr', results);
+      } else {
+        return res.render('pedigree', results);
+      }
     }
   });
 });

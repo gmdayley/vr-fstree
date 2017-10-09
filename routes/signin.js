@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   // oauthRedirectURL() returns the URL that the user should be redirected to
   // on familysearch.org for starting OAuth. The propery query params will be
   // set for the app key (client id) and the redirect uri.
-  res.redirect(req.fs.oauthRedirectURL());
+  res.redirect(req.fs.oauthRedirectURL(encodeURIComponent(req.path)));
 });
 
 module.exports = router;

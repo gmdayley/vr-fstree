@@ -3,6 +3,6 @@ import React from 'react';
 
 export default props => (
   <Entity>
-    <Entity camera look-controls wasd-controls {...props}/>
+    <Entity camera="userHeight: 1.6" universal-controls="fly: true; movementEasingY: 15" look-controls qz-keyboard-controls {...props}/>
   </Entity>
 );

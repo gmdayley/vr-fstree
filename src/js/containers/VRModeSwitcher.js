@@ -6,18 +6,28 @@ import { disableVRMode, enableVRMode } from '../redux/actions'
 const styles = require('../../scss/VRModeSwitcher.scss')
 
 class VRModeSwitcher extends Component {
+  enterVRMode = (evt) => {
+    document.dispatchEvent(new CustomEvent('enable-vr'));
+    this.props.enableVRMode();
+  }
+
+  exitVRMode = (evt) => {
+    document.dispatchEvent(new CustomEvent('disable-vr'));
+    this.props.disableVRMode();
+  }
+
   render () {
     if (this.props.vrMode) {
       return (
         <Entity geometry={{'primitive': 'sphere', radius: 1}}
                 material={{color: 'red'}}
                 position={'0 -2 0'}
-                onClick={this.props.disableVRMode} />
+                onClick={this.exitVRMode} />
       )
     } else {
       return (
         <div className="vrModeSwitcher-container">
-          <button onClick={this.props.enableVRMode}>Enter virtual reality mode</button>
+          <button onClick={this.enterVRMode}>Enter virtual reality mode</button>
         </div>
       )
     }
