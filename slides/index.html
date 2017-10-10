@@ -121,29 +121,43 @@
         </section>
 
         <section>
-          <section>
-            <h1>A-Frame</h1></section>
-              <section>BasicsHello WebVR</section>
-            <section>Scenes</section>
-            <section>Positioning</section>
-            <section>Rotation</section>
-            <section>Camera</section>
-            <section>Primitives</section>
-            <section>Textures/Assets</section>
-            <section>Registry</section>
-            <section>Animation</section>
-            <section>Physics</section>
-            <section>Javascript</section>
-            <section>Query</section>
-            <section>Modify</section>
-            <section>Create</section>
-            <section>Events</section>
-            <section>Gaze</section>
-            <section>Models</section>
-            <section>Demo?</section>
-            <section>Controllers</section>
-            <section>Demo</section>
-          </section>
+					<section id="aframe-logo" data-state="reload-aframe" data-background-iframe="https://aframe.io/aframe/examples/animation/aframe-logo/?ui=false">
+						<h1>A-FRAME</h1>
+						<p>A web framework for building virtual reality experiences</p>
+					</section>
+
+					<section data-background-iframe="https://sort-intro-webvr.glitch.me/">
+					</section>
+					
+					<!-- <section data-background-iframe="/aframe" data-background-interactive>
+						<h1>A-Frame</h1>
+					</section> -->
+
+					<section>BasicsHello WebVR</section>
+					<section>Scenes</section>
+					<section>Positioning</section>
+					<section>Rotation</section>
+					<section>Camera</section>
+					<section>Primitives</section>
+
+
+					<section>Textures/Assets</section>
+
+					<section>Registry</section>
+					<section>Animation</section>
+					
+					<section>Physics</section>
+					<section>Javascript</section>
+					<section>Query</section>
+					<section>Modify</section>
+					<section>Create</section>
+					<section>Events</section>
+					<section>Gaze</section>
+					<section>Models</section>
+					<section>Demo?</section>
+					<section>Controllers</section>
+					<section>Demo</section>
+				</section>
 
         <section>
           <h1><span style="font-size:1.2em">WebVR</span></h1>
@@ -224,6 +238,7 @@
 				progress: true,
 				history: true,
 				center: true,
+				// viewDistance: 2,
 				watermark: {
 					content: '<div class="sort-logo"><img src="/images/sort-logo.png" height="36"><span>SORT 2017</span></div>',
 				},
@@ -255,6 +270,10 @@
 			// 	console.log( event.currentSlide.classList )
 			// 	// console.log(showParticles)
 			// }, false)
+
+			Reveal.addEventListener('reload-aframe', function() {
+				//TODO
+			})
 		</script>
 
 </body>
