@@ -1,0 +1,107 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/fs-person-summary/fs-person-summary.html">
+<link rel="import" href="../bower_components/fs-person-families/fs-person-families.html">
+<link rel="import" href="../bower_components/fs-person-facts/fs-person-facts.html">
+<link rel="import" href="../bower_components/fs-person-sources/fs-person-sources.html">
+
+<!--
+Small wrapper around person profile components. This acts as one control point
+between the app and the profile for passing the person ID down and for reflecting
+the loading state of the component.
+
+@element person-details
+-->
+<dom-module id="person-details">
+  <template>
+    <style>
+      fs-person-families {
+        --fs-person-chip-hover: {
+          cursor: pointer;
+        }
+      }
+
+      #person-header {
+        display: block;
+      }
+    </style>
+    <paper-card id="person-header">
+      <div class="card-content">
+        <fs-person-summary person-loading="{{summaryLoading}}" person-id="[[personId]]"></fs-person-summary>
+      </div>
+    </paper-card>
+    <div>
+      <h3>Facts</h3>
+      <fs-person-facts person-loading="{{factsLoading}}" person-id="[[personId]]"></fs-person-facts>
+    </div>
+    <div id="family">
+      <h3>Family</h3>
+      <fs-person-families loading="{{familiesLoading}}" person-id="[[personId]]"></fs-person-families>
+    </div>
+    <div>
+      <h3>Sources</h3>
+      <fs-person-sources loading="{{sourcesLoading}}" person-id="[[personId]]"></fs-person-sources>
+    </div>
+  </template>
+  <script>
+    class PersonDetails extends Polymer.Element {
+
+      static get is() { return 'person-details'; }
+
+      static get properties() {
+        return {
+          personId: String,
+
+          /**
+           * Reflects the loading state of the fs-person-families element.
+           */
+          familiesLoading: {
+            type: Boolean,
+            value: false
+          },
+
+          /**
+           * Reflects the loading state of the fs-person-sources element.
+           */
+          sourcesLoading: {
+            type: Boolean,
+            value: false
+          },
+
+          /**
+           * Reflects the loading state of the fs-person-facts element.
+           */
+          factsLoading: {
+            type: Boolean,
+            value: false
+          },
+
+          /**
+           * Reflects the loading state of the fs-person-summary element.
+           */
+          summaryLoading: {
+            type: Boolean,
+            value: false
+          },
+
+          /**
+           * Loading state of the person-details. This component is in the loading
+           * state when any of it's sub-elements are loading.
+           */
+          loading: {
+            type: Boolean,
+            readOnly: true,
+            notify: true,
+            computed: '_isLoading(summaryLoading, factsLoading, familiesLoading, sourcesLoading)'
+          }
+        };
+      }
+
+      _isLoading(summaryLoading, factsLoading, familiesLoading, sourcesLoading) {
+        return summaryLoading || factsLoading || familiesLoading || sourcesLoading;
+      }
+    }
+
+    customElements.define(PersonDetails.is, PersonDetails);
+  </script>
+</dom-module>

@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.12.3/dist/aframe-extras.min.js"></script>
+<script src="https://unpkg.com/aframe-html-shader@0.2.0/dist/aframe-html-shader.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@0.6.0/dist/aframe-look-at-component.min.js"></script>
+
+
+<a-scene universal-controls wasd-controls>
+  <a-box color="blue"></a-box>
+
+  <!--<%- include('partials/person-vr', {person: ancestry['7'], position: 7}) %>-->
+  <!--<%- include('partials/person-vr', {person: ancestry['6'], position: 6}) %>-->
+  <!--<%- include('partials/person-vr', {person: ancestry['5'], position: 5}) %>-->
+  <!--<%- include('partials/person-vr', {person: ancestry['4'], position: 4}) %>-->
+  <!--<%- include('partials/person-vr', {person: ancestry['3'], position: 3}) %>-->
+  <!--<%- include('partials/person-vr', {person: ancestry['2'], position: 2}) %>-->
+  <!--<%- include('partials/person-vr', {person: ancestry['1'], position: 1}) %>-->
+
+  <%
+    var keys = Object.keys(ancestry)
+  for(var i = 0; i < keys.length; i++) {
+    var pos = ancestry.length*2 / 2;
+  %>
+  <%- include('partials/person-vr', {person: ancestry[keys[i]], position: i+1 }) %>
+  <% } %>
+
+  <!--<h3>Children</h3>-->
+  <!--<div class="children">-->
+    <% for(var i = 0; i < children.length; i++) {
+        var pos = children.length*2 / 2;
+    %>
+      <%- include('partials/child-vr', {person: children[i], position: pos - i*2 }) %>
+    <% } %>
+  <!--</div>-->
+
+  <!-- Floor -->
+  <!--<a-entity static-body="" geometry="primitive: plane; height: 5000; width: 5000" position="0 -0.5 -5"-->
+            <!--rotation="-90 0 0" material="shader: flat; src: url(/images/floor.png); repeat: 2001 2001"></a-entity>-->
+  <!-- Lighting and Background -->
+  <a-sky color="#000" radius="5000" material="color:#000;shader:flat"
+         geometry="primitive:sphere;radius:5000;segmentsWidth:64;segmentsHeight:64" scale="-1 1 1"></a-sky>
+  <a-entity light="color:#fff;type:ambient" data-aframe-default-light=""></a-entity>
+  <a-entity light="color:#fff;intensity:0.2" position="-1 2 1" data-aframe-default-light=""></a-entity>
+  <a-camera></a-camera>
+</a-scene>
+
+<script>
+  // Instead of making the person squares clickable by wrapping them in <a> tags
+  // and committing a great sin of rendering block content in an inline element,
+  // we just listen for the click event on them and manually perform the
+  // navigation.
+  Array.from(document.querySelectorAll('.person:not(.missing)')).forEach(function($person){
+    $person.addEventListener('click', function(){
+      window.location.href = '/pedigree/' + $person.dataset.pid;
+    });
+  });
+</script>
+  
+<%- include('partials/footer') %>

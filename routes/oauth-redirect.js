@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
     req.session.fs_token = tokenResponse.data.access_token;
     res.cookie('familysearch-sessionid', tokenResponse.data.access_token)
     req.session.save(function(){
-      res.redirect('/pedigree');
+      res.redirect(tokenResponse.data.state || '/pedigree');
     });
   });
 });
