@@ -103910,7 +103910,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var styles = __webpack_require__(602);
-var boxSize = 0.5;
+var boxSize = 0.4;
 
 var Members = function (_Component) {
   _inherits(Members, _Component);
@@ -104109,7 +104109,7 @@ var VRModeSwitcher = function (_Component) {
     key: 'render',
     value: function render() {
       if (this.props.vrMode) {
-        return _react2.default.createElement(_aframeReact.Entity, { geometry: { 'primitive': 'sphere', radius: 1 },
+        return _react2.default.createElement(_aframeReact.Entity, { geometry: { 'primitive': 'sphere', radius: .5 },
           material: { color: 'red' },
           position: '0 -2 0',
           onClick: this.exitVRMode });
@@ -104223,7 +104223,9 @@ var Wrapper = function (_Component) {
           null,
           _react2.default.createElement(
             _aframeReact.Scene,
-            { embedded: true },
+            null,
+            _react2.default.createElement('a-entity', { position: '0 -10 0', environment: 'preset: starry; seed: 2; lightPosition: 0.0 0.01 -0.5; fog: 0.8; ground: canyon; groundYScale: 18.31; groundTexture: walkernoise; grid: none' }),
+            _react2.default.createElement('a-light', { type: 'ambient', color: '#FFF', intensity: '0.7', position: '0 0.0 0.0' }),
             _react2.default.createElement(
               _Camera2.default,
               null,
@@ -104349,7 +104351,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.circularPositionFromIndex = circularPositionFromIndex;
-var radius = 3;
+var radius = 4;
 var diameter = radius * 2;
 var circumference = diameter * Math.PI;
 
@@ -104359,12 +104361,12 @@ function circularPositionFromIndex(index, boxSize) {
 
   var yIndex = Math.floor(index / itemsPerCircle);
   var y = yIndex % 2 === 0 ? yIndex * boxSize * -1 : Math.ceil(yIndex * boxSize);
-
+  // y -= 0.2
   var circleIndex = index % itemsPerCircle;
   var angle = circleIndex * radiansPerIndex;
   var x = 0 + Math.sin(angle) * radius;
   var z = 0 + Math.cos(angle) * radius;
-
+  // console.log('xyz', x, y, z)
   return { x: x, y: y, z: z };
 }
 

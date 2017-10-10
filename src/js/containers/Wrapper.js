@@ -16,8 +16,11 @@ class Wrapper extends Component {
     if (vrMode) {
       return (
         <div>
-          <Scene embedded>
-            <Camera><Cursor/></Camera>
+          <Scene>
+        <a-entity position="0 -10 0" environment="preset: starry; seed: 2; lightPosition: 0.0 0.01 -0.5; fog: 0.8; ground: canyon; groundYScale: 18.31; groundTexture: walkernoise; grid: none"></a-entity>
+        <a-light type="ambient" color="#FFF" intensity="0.7" position="0 0.0 0.0"></a-light>
+
+        <Camera><Cursor/></Camera>
             <Members/>
             <VRModeSwitcher/>
           </Scene>

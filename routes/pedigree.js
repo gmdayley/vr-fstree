@@ -25,6 +25,7 @@ router.get('/:personId', function(req, res, next) {
   
   var fs = req.fs,
       personId = req.params.personId;
+  var generations = req.query.gens || 6;
   
   // http://caolan.github.io/async/docs.html#autoInject
   // async.autoInject is an easy way for us to specify and manage dependencies
@@ -37,7 +38,7 @@ router.get('/:personId', function(req, res, next) {
     ancestry: function(callback){
       console.time('ped')
       // https://familysearch.org/developers/docs/api/tree/Ancestry_resource
-      fs.get('/platform/tree/ancestry?generations=6&person=' + personId, function(error, response){
+      fs.get(`/platform/tree/ancestry?generations=${generations}&person=` + personId, function(error, response){
         console.timeEnd('ped')
         // When requesting a person's ancestry, anything other than an HTTP 200
         // is unexpected and thus we treat it as an error.

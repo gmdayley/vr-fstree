@@ -19,7 +19,7 @@ class VRModeSwitcher extends Component {
   render () {
     if (this.props.vrMode) {
       return (
-        <Entity geometry={{'primitive': 'sphere', radius: 1}}
+        <Entity geometry={{'primitive': 'sphere', radius: .5}}
                 material={{color: 'red'}}
                 position={'0 -2 0'}
                 onClick={this.exitVRMode} />

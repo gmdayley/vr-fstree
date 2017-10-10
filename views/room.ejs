@@ -436,12 +436,25 @@
 
   <a-assets>
     <a-asset-item id="sofa" src="models/sofa.dae"></a-asset-item>
+    <a-asset-item id="fireplace" src="models/fireplace2/model.dae"></a-asset-item>
+    <a-asset-item id="clock" src="/models/clock/scene.gltf"></a-asset-item>
+    <a-asset-item id="picframe" src="/models/picture-frame/scene.gltf"></a-asset-item>
+    <a-asset-item id="woodframe" src="/models/simple_wooden_picture_frame/scene.gltf"></a-asset-item>
+    <a-asset-item id="grandfatherclock" src="/models/grandfatherclock/scene.gltf"></a-asset-item>
   </a-assets>
+
+  <a-plane color="#000" position="5.5 3 -6" material="shader: flat; color: #fff; opacity: 0.8; transparent: true">
+    <a-text scale="1 1 1" widthx="2" color="#8c001a" position="-0.35 0 0" value="Home\nSweet\nHome" font="kelsonsans"></a-text>
+  </a-plane>
+  <a-gltf-model src="#woodframe" position="5.5 2.45 -6" scale="0.01 0.015 0.01">
+
+  </a-gltf-model>
 
   <a-entity geometry="primitive: plane; height: 14; width: 22" position="-21 3.3 2" rotation="0 90 0" material="shader: flat;
 src: url(images/outside.jpg)"></a-entity>
   <a-entity geometry="primitive: plane; height: 14; width: 22" position="21 3.3 2" rotation="0 -90 0" material="shader: flat;
 src: url(images/outside3.jpg)"></a-entity>
+
 
   <!-- Table -->
   <a-entity geometry="primitive: box; depth: 1.6; height: 0.1; width: 6" position="0 0.55 1.1" material="shader: flat;
@@ -451,8 +464,15 @@ src: url(images/table.jpg)"></a-entity>
     <a-entity geometry="primitive: box; depth: 1.6; height: 1; width: 0.2" position="-2.9 -0.55 -0" material="shader: flat;
 src: url(images/table.jpg)"></a-entity>
     <!-- Table Items -->
-    <a-entity geometry="primitive: plane; height: 0.8; width: 0.6" position="0.8 0.1 0" rotation="-90 10 0" material="shader: flat; side: double;
+    <a-entity geometry="primitive: plane; height: 0.8; width: 0.6" position="0.9 0.1 0" rotation="-90 10 0" material="shader: flat; side: double;
 src: url(images/magazine.jpg)"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.8; width: 0.6" position="0.1 0.1 0" rotation="-90 -5 0" material="shader: flat; side: double;
+src: url(images/story1.png)"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.8; width: 0.6" position="-0.8 0.1 0" rotation="-90 -10 0" material="shader: flat; side: double;
+src: url(images/story2.png)"></a-entity>
+    <a-entity geometry="primitive: plane; height: 0.8; width: 0.6" depth="0.05" position="-1.8 0.1 0" rotation="-90 15 0" material="shader: flat; side: double; opacity: 0.1; text: My Story">
+      <a-text scale="0.5 0.5 0.5" width="0.3" position="0 1 0" value="My Story" font="kelsonsans" color="#ff0000"></a-text>
+    </a-entity>
     <a-entity geometry="primitive: plane; height: 0.5; width: 0.4" position="1.6 0.08 0.2" rotation="-90 -20 0"
               material="shader: flat; side: double; src: url(images/snow-crash.jpg)"></a-entity>
     <a-entity geometry="primitive: box; depth: 0.05; height: 0.5; width: 0.01" position="1.417 0.06 0.13"
@@ -463,86 +483,67 @@ src: url(images/magazine.jpg)"></a-entity>
   </a-entity>
 
   <!-- Floor -->
-  <a-entity geometry="primitive: box; depth: 18; height: 0.5; width: 30" position="0 -0.5 2" material="shader: flat;
-src: url(images/floor2.jpg); repeat: 15 10"></a-entity>
-  <a-entity geometry="primitive: box; depth: 18; height: 0.5; width: 30" position="0 -0.5 20" material="shader: flat;
-src: url(images/floor2.jpg); repeat: 15 10"></a-entity>
+  <a-entity geometry="primitive: box; depth: 18; height: 0.5; width: 15" position="0 -0.5 2" material="shader: flat;
+src: url(images/floor2.jpg); repeat: 7.5 10"></a-entity>
   <!-- Ceiling -->
-  <a-entity geometry="primitive: box; depth: 18; height: 0.5; width: 30" position="0 7.5 2" material="shader: flat;  metalness: 0.8;
-src: url(images/wood1.jpg); repeat: 4 10"></a-entity>
-  <a-entity geometry="primitive: box; depth: 18; height: 0.5; width: 30" position="0 7.5 20" material="shader: flat;  metalness: 0.8;
-src: url(images/wood1.jpg); repeat: 4 10"></a-entity>
+  <a-entity geometry="primitive: box; depth: 18; height: 0.5; width: 15" position="0 7.5 2" material="shader: flat;  metalness: 0.8;
+src: url(images/wood1.jpg); repeat: 2 10"></a-entity>
 
-  <!-- Wall Front -->
-  <a-entity geometry="primitive: box; depth: 0.2; height: 7.5; width: 30" position="0 3.5 -6.5"
-            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 200 50"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 7.5; width: 14" position="0 3.5 11.1"
-            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 200 50"></a-entity>
+  <!-- Wall Front and Back -->
+  <a-entity geometry="primitive: box; depth: 0.2; height: 7.5; width: 15" position="0 3.5 -6.5"
+            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 100 50"></a-entity>
+  <a-entity geometry="primitive: box; depth: 0.2; height: 7.5; width: 15" position="0 3.5 11.1"
+            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 100 50"></a-entity>
 
   <!-- Wall Left -->
-  <a-entity geometry="primitive: box; depth: 0.2; height: 7.5; width: 18" position="15 3.5 20" rotation="0 90 0"
-            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 100 50"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 2.7; width: 17.4" position="-15 6.1 2.1" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.2; height: 2.7; width: 17.4" position="-7.5 6.1 2.1" rotation="0 90 0"
             material="shader: standard; side: double; src: url(images/wall.gif); repeat: 100 20"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 1.8" position="-15 2.3 -5.5" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 9" position="-7.5 2.3 -2.1" rotation="0 90 0"
             material="shader: standard; side: double; src: url(images/wall.gif); repeat: 20 30"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 1.8" position="-15 2.3 10.0" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 5" position="-7.5 2.3 8.3" rotation="0 90 0"
             material="shader: standard; side: double; src: url(images/wall.gif); repeat: 20 30"></a-entity>
 
   <!-- Wall Right -->
-  <a-entity geometry="primitive: box; depth: 0.2; height: 7.5; width: 18" position="-15 3.5 20" rotation="0 90 0"
-            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 100 50"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 2.7; width: 17.4" position="15 6.1 2.1" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.2; height: 2.7; width: 17.4" position="7.5 6.1 2.1" rotation="0 90 0"
             material="shader: standard; side: double; src: url(images/wall.gif); repeat: 100 20"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 1.8" position="15 2.3 -5.5" rotation="0 90 0"
-            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 20 30"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 1.8" position="15 2.3 10.0" rotation="0 90 0"
-            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 20 30"></a-entity>
-
-  <a-entity geometry="primitive: plane; height: 5; width: 14" position="-14.89 2.3 2.3" rotation="0 90 0" material="shader: flat; side: double; transparent: true;
-src: url(images/doors.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 5; width: 14" position="14.89 2.3 2.3" rotation="0 90 0" material="shader: flat; side: double; transparent: true;
-src: url(images/doors.png)"></a-entity>
+  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 9" position="7.5 2.3 -2.1" rotation="0 90 0"
+            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 70 30"></a-entity>
+  <a-entity geometry="primitive: box; depth: 0.2; height: 5; width: 5" position="7.5 2.3 8.3" rotation="0 90 0"
+            material="shader: standard; side: double; src: url(images/wall.gif); repeat: 40 30"></a-entity>
 
   <!-- Beams -->
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 30" position="0 7.3 -6.3" material="shader: flat;
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 15" position="0 7.3 -6.3" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 5" position="12.2 3.3 -6.3" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 5" position="-12.2 3.3 -6.3" material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 30" position="0 -0.35 -6.3" material="shader: flat;
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 15" position="0 -0.35 -6.3" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
   <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 14" position="0 -0.35 10.9" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="14.8 -0.3 2.1" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="7.3 -0.3 2.1" rotation="0 90 0"
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="14.8 -0.3 20.1" rotation="0 90 0"
-            material="shader: flat;
-src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
+
   <!-- Beams Left -->
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="-14.8 -0.3 2.1" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="-7.3 -0.3 2.1" rotation="0 90 0"
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 14.4" position="-14.8 4.8 2.35" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 4" position="-7.3 4.8 2.35" rotation="0 90 0"
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
   <!-- Beams Right -->
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="14.8 -0.3 2.1" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 18" position="7.3 -0.3 2.1" rotation="0 90 0"
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 14.4" position="14.8 4.8 2.35" rotation="0 90 0"
+  <a-entity geometry="primitive: box; depth: 0.3; height: 0.4; width: 4" position="7.3 4.8 2.35" rotation="0 90 0"
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
   <!-- Beams Front -->
-  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="-14.7 3.5 -6.3" material="shader: flat;
+  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="-7.2 3.5 -6.3" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="14.7 3.5 -6.3" material="shader: flat;
+  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="7.2 3.5 -6.3" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="-14.7 3.5 10.9" material="shader: flat;
+  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="-7.2 3.5 10.9" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="14.7 3.5 10.9" material="shader: flat;
+  <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="7.2 3.5 10.9" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
   <!-- Beams Back -->
   <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="6.9 3.5 10.9" material="shader: flat;
@@ -550,39 +551,40 @@ src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
   <a-entity geometry="primitive: box; depth: 0.5; height: 7.5; width: 0.5" position="-6.9 3.5 10.9" material="shader: flat;
 src: url(images/wood1.jpg); repeat: 2 1"></a-entity>
 
-  <a-collada-model src="models/sofa.dae" scale="1 1 1" position="0 0 4.3" rotation="0 90 0">
-    <a-root>
-      <a-entity material="opacity: 1.0" loader="src: url(models/sofa.dae); format: collada">
-      </a-entity>
-    </a-root>
-  </a-collada-model>
+  <a-collada-model src="#sofa" scale="1 1 1" position="0 0 4.3" rotation="0 90 0"></a-collada-model>
+
+  <a-gltf-model src="#grandfatherclock" position="6.7 1.8 -3" rotation="0 -90 0" scale="2 2 2"></a-gltf-model>
+  <a-gltf-model src="#clock" position="-7.4 3.5 -5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-gltf-model>
+
+  <a-collada-model src="#fireplace" scale="1.5 1.5 1.5" position="-1.5 0 -5.4" rotation="0 0 0"></a-collada-model>
+  <a-plane position="-0.1 0.65 -5.6" height=".65" width="1.2" src="models/fireplace2/model/fire.jpg" material="shader: flat; side: double; transparent: true; opacity: 0.6"></a-plane>
 
   <!-- Wainscoting Front -->
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 5" position="-12.2 1.5 -6.4" rotation="0 0 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 6.2" position="-4.25 0.8 -6.4" rotation="0 0 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 4 2"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 5" position="12.2 1.5 -6.4" rotation="0 0 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 6.2" position="4.2 0.8 -6.4" rotation="0 0 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 4 2"></a-entity>
   <!-- Wainscoting Left -->
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 1.4" position="-14.9 1.5 -5.4" rotation="0 90 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 1.4" position="-7.4 0.8 -5.4" rotation="0 90 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 1.4" position="-14.9 1.5 9.95" rotation="0 90 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 1.4" position="-7.4 0.8 9.95" rotation="0 90 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
   <!-- Wainscoting Right -->
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 1.4" position="14.9 1.5 -5.4" rotation="0 90 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 1.4" position="7.4 0.8 -5.4" rotation="0 90 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 1.4" position="14.9 1.5 9.95" rotation="0 90 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 1.4" position="7.4 0.8 9.95" rotation="0 90 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
 
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 18" position="14.9 1.5 20" rotation="0 90 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 18" position="7.4 0.8 20" rotation="0 90 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 10 2"></a-entity>
-  <a-entity geometry="primitive: box; depth: 0.1; height: 4; width: 18" position="-14.9 1.5 20" rotation="0 90 0 "
+  <a-entity geometry="primitive: box; depth: 0.1; height: 2; width: 18" position="-7.4 0.8 20" rotation="0 90 0 "
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 10 2"></a-entity>
 
@@ -610,6 +612,12 @@ src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
             material="shader: flat;
 src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
 
+  <a-gltf-model src="#picframe" position="-2 1.6 9.5" rotation="0 135 0" scale="0.5 0.5 0.5">
+
+  <a-plane position="0 0 0" rotation="0 0 0" scale="1 1 1" height="1" width="1" src="images/van-gogh.jpg" material="shader: flat; side: double"></a-plane>
+  </a-gltf-model>
+
+
   <!-- Art -->
   <a-entity geometry="primitive: plane; height: 4; width: 8" position="0 4.5 10.99" rotation="0 180 0" material="shader: flat; transparent: true;
  src: url(images/art.png)"></a-entity>
@@ -619,9 +627,9 @@ src: url(images/wood1.jpg); repeat: 1 2"></a-entity>
  src: url(images/van-gogh2.jpg)"></a-entity>
 
   <!-- Lights -->
-  <a-entity geometry="primitive: plane; height: 2; width: 2" position="-8 6.8 2.5" rotation="90 0 0" material="shader: flat; transparent: true;
+  <a-entity geometry="primitive: plane; height: 2; width: 2" position="-2.5 6.8 2.5" rotation="90 0 0" material="shader: flat; transparent: true;
  src: url(images/ceiling-light.png)"></a-entity>
-  <a-entity geometry="primitive: plane; height: 2; width: 2" position="8 6.8 2.5" rotation="90 0 0" material="shader: flat; transparent: true;
+  <a-entity geometry="primitive: plane; height: 2; width: 2" position="2.5 6.8 2.5" rotation="90 0 0" material="shader: flat; transparent: true;
  src: url(images/ceiling-light.png)"></a-entity>
 
   <!-- Camera -->

@@ -1,4 +1,4 @@
-const radius = 3
+const radius = 4
 const diameter = radius*2
 const circumference = diameter*Math.PI
 
@@ -8,11 +8,11 @@ export function circularPositionFromIndex(index, boxSize) {
 
   let yIndex = Math.floor(index/itemsPerCircle)
   let y = yIndex % 2 === 0 ? (yIndex*boxSize)*-1 : Math.ceil(yIndex*boxSize)
-
+// y -= 0.2
   let circleIndex = index % itemsPerCircle
   let angle = circleIndex * radiansPerIndex
   let x = 0 + Math.sin(angle)*radius
   let z = 0 + Math.cos(angle)*radius
-
+// console.log('xyz', x, y, z)
   return {x, y , z}
 }

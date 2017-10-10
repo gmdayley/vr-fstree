@@ -6,7 +6,7 @@ import { circularPositionFromIndex } from '../utils/calculations'
 import { nextMemberType } from '../redux/actions'
 
 const styles = require('../../scss/Members.scss')
-const boxSize = 0.5
+const boxSize = 0.4
 
 class Members extends Component {
   render () {
