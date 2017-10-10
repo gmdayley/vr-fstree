@@ -28,6 +28,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 app.use('/slides', express.static(path.join(__dirname, 'slides')));
+app.use('/aframe', express.static(path.join(__dirname, 'aframe-demo')));
 app.use('/proxy', proxy({target: 'https://www.familysearch.org', changeOrigin: true, pathRewrite: {'^/proxy' : ''}}));
 app.use('/data', proxy({target: 'https://beta.familysearch.org', changeOrigin: true, pathRewrite: {'^/data' : ''}}));
 
